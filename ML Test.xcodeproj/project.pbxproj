@@ -108,7 +108,7 @@
 		FB776BAB24A9A54F00769F91 /* NetworkServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceType.swift; sourceTree = "<group>"; };
 		FB776BAD24A9A55900769F91 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		FB776BAF24A9A57200769F91 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		FB776BB124A9A58C00769F91 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ServiceProvider.swift; path = ../../../../../../ServiceProvider.swift; sourceTree = "<group>"; };
+		FB776BB124A9A58C00769F91 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ServiceProvider.swift; path = ../../../../ServiceProvider.swift; sourceTree = "<group>"; };
 		FB776BBA24A9B15900769F91 /* ImageRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequestService.swift; sourceTree = "<group>"; };
 		FB776BBC24A9B16900769F91 /* ImageRequestServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequestServiceType.swift; sourceTree = "<group>"; };
 		FB776BBE24A9B17A00769F91 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
