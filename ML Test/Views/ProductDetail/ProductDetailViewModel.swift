@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProductDetailViewModel: ProductSearchViewModelType {
+struct ProductDetailViewModel: ProductDetailViewModelType {
     func transform(input: ProductSearchViewModelInput) {
     }
 }

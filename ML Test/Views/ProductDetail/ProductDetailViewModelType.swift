@@ -18,7 +18,7 @@ typealias ProductDetailViewModelOutput = AnyPublisher<ProductSearchViewState, Ne
 
 ///Inputs de la pantalla de búsqueda de producto
 struct ProductDetailViewModelInput {
-    
+    let appear: AnyPublisher<Void, Never>
 }
 
 ///Estados de la pantalla de búsqueda de producto

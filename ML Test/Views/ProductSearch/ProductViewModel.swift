@@ -9,10 +9,20 @@ import Foundation
 import Combine
 import UIKit.UIImage
 
-struct ProductViewModel {
-    let id: Int
-    let name: String
+struct ProductViewModel: Hashable {
+    
+    let id: String
+    let title: String
     let price: Double
-    let description: String
+    let condition: ProductCondition
+    let freeShipping: Bool
     let image: AnyPublisher<UIImage?, Never>
+    
+    static func == (lhs: ProductViewModel, rhs: ProductViewModel) -> Bool {
+        return lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }

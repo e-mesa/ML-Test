@@ -13,7 +13,9 @@ class ProductTableViewCell: UITableViewCell, ReusableView, NibProtocol {
     @IBOutlet private var price: UILabel!
     @IBOutlet private var productImage: UIImageView!
     private var cancellable: AnyCancellable?
-
+    @IBOutlet weak var condition: UILabel!
+    @IBOutlet weak var freeShipping: UILabel!
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         cancelImageLoading()
@@ -21,8 +23,11 @@ class ProductTableViewCell: UITableViewCell, ReusableView, NibProtocol {
 
     func bind(to viewModel: ProductViewModel) {
         cancelImageLoading()
-        name.text = viewModel.name
-        price.text = String(viewModel.price)
+        name.text = viewModel.title
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        price.text = "$\(viewModel.price.formattedDecimalString())"
+        bottomLabelsSetup(condition: viewModel.condition, freeShipping: viewModel.freeShipping)
         cancellable = viewModel.image.sink { [unowned self] image in self.showImage(image: image) }
     }
 
@@ -36,6 +41,11 @@ class ProductTableViewCell: UITableViewCell, ReusableView, NibProtocol {
         })
     }
 
+    private func bottomLabelsSetup(condition: ProductCondition, freeShipping: Bool) {
+        self.condition.text = condition == .new ? "Nuevo" : "Usado"
+        self.freeShipping.isHidden = !freeShipping
+    }
+    
     private func cancelImageLoading() {
         productImage.image = nil
         cancellable?.cancel()
