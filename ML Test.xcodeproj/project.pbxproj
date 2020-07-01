@@ -35,10 +35,10 @@
 		FB776BAC24A9A54F00769F91 /* NetworkServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776BAB24A9A54F00769F91 /* NetworkServiceType.swift */; };
 		FB776BAE24A9A55900769F91 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776BAD24A9A55900769F91 /* Resource.swift */; };
 		FB776BB024A9A57300769F91 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776BAF24A9A57200769F91 /* NetworkService.swift */; };
-		FB776BB224A9A58C00769F91 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776BB124A9A58C00769F91 /* ServiceProvider.swift */; };
 		FB776BBB24A9B15900769F91 /* ImageRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776BBA24A9B15900769F91 /* ImageRequestService.swift */; };
 		FB776BBD24A9B16900769F91 /* ImageRequestServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776BBC24A9B16900769F91 /* ImageRequestServiceType.swift */; };
 		FB776BBF24A9B17A00769F91 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776BBE24A9B17A00769F91 /* ImageCache.swift */; };
+		FB9DCF7A24AC4BA5009D519E /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9DCF7924AC4BA5009D519E /* ServiceProvider.swift */; };
 		FBA3E75C24AB1C2F00889CD8 /* ProductSearchViewModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA3E75B24AB1C2F00889CD8 /* ProductSearchViewModelBuilder.swift */; };
 		FBAA2E9224AC25EC00583C94 /* Shipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAA2E9124AC25EC00583C94 /* Shipping.swift */; };
 		FBAA2E9424AC2A8400583C94 /* Double+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAA2E9324AC2A8400583C94 /* Double+Formatter.swift */; };
@@ -108,10 +108,10 @@
 		FB776BAB24A9A54F00769F91 /* NetworkServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceType.swift; sourceTree = "<group>"; };
 		FB776BAD24A9A55900769F91 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		FB776BAF24A9A57200769F91 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		FB776BB124A9A58C00769F91 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ServiceProvider.swift; path = ../../../../ServiceProvider.swift; sourceTree = "<group>"; };
 		FB776BBA24A9B15900769F91 /* ImageRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequestService.swift; sourceTree = "<group>"; };
 		FB776BBC24A9B16900769F91 /* ImageRequestServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequestServiceType.swift; sourceTree = "<group>"; };
 		FB776BBE24A9B17A00769F91 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		FB9DCF7924AC4BA5009D519E /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		FBA3E75B24AB1C2F00889CD8 /* ProductSearchViewModelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchViewModelBuilder.swift; sourceTree = "<group>"; };
 		FBAA2E9124AC25EC00583C94 /* Shipping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shipping.swift; sourceTree = "<group>"; };
 		FBAA2E9324AC2A8400583C94 /* Double+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Formatter.swift"; sourceTree = "<group>"; };
@@ -275,9 +275,9 @@
 			isa = PBXGroup;
 			children = (
 				FB776BB324A9AEF600769F91 /* ImageRequest */,
-				FB776BB124A9A58C00769F91 /* ServiceProvider.swift */,
 				FB776BAA24A9A53600769F91 /* Network */,
 				FBE2650224AAF1F700DF92D0 /* Scheduler.swift */,
+				FB9DCF7924AC4BA5009D519E /* ServiceProvider.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -471,6 +471,7 @@
 				FB776BBF24A9B17A00769F91 /* ImageCache.swift in Sources */,
 				FB776BAC24A9A54F00769F91 /* NetworkServiceType.swift in Sources */,
 				FBD357A924A96582009B1344 /* ApplicationComponentsFactory.swift in Sources */,
+				FB9DCF7A24AC4BA5009D519E /* ServiceProvider.swift in Sources */,
 				FB28A08E24A9365A0066C28C /* AccessibilityIdentifiers.swift in Sources */,
 				FBAA2E9224AC25EC00583C94 /* Shipping.swift in Sources */,
 				FBE2650524AAF3D200DF92D0 /* Resource+Product.swift in Sources */,
@@ -499,7 +500,6 @@
 				FB2E5FA924A7EF3000CBDD4B /* SceneDelegate.swift in Sources */,
 				FB776BBB24A9B15900769F91 /* ImageRequestService.swift in Sources */,
 				FBAA2E9424AC2A8400583C94 /* Double+Formatter.swift in Sources */,
-				FB776BB224A9A58C00769F91 /* ServiceProvider.swift in Sources */,
 				FBD357AB24A96863009B1344 /* Main.swift in Sources */,
 				FB1BA1AD24A97DC700D008B6 /* AlertViewController.swift in Sources */,
 				FBD4B2C024A944BB0001A82F /* ProductSearchNavigator.swift in Sources */,
