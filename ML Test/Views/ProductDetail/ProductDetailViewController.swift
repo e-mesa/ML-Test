@@ -52,9 +52,8 @@ class ProductDetailViewController: UIViewController {
     }
 
     private func show(_ product: ProductViewModel) {
-        name.text = product.name
+        name.text = product.title
         price.text = String(product.price)
-        details.text = product.description
     }
 }
 
