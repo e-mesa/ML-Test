@@ -17,7 +17,7 @@ protocol ProductSearchFlowCoordinatorDependencyProvider: class {
     func productSearchController(navigator: ProductSearchNavigator) -> UIViewController
 
     // Crea el UIViewController relacionado al detalle de los productos
-    func productDetailController(_ productId: String) -> UIViewController
+    func productDetailController(_ productViewModel: ProductViewModel) -> UIViewController
 }
 
 

@@ -10,7 +10,7 @@ import Combine
 
 class ProductSearchViewController : UIViewController {
     private var cancellables: [AnyCancellable] = []
-    private let selection = PassthroughSubject<String, Never>()
+    private let selection = PassthroughSubject<ProductViewModel, Never>()
     private let search = PassthroughSubject<String, Never>()
     private let appear = PassthroughSubject<Void, Never>()
     private let viewModel: ProductSearchViewModelType
@@ -88,7 +88,7 @@ extension ProductSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let snapshot = dataSource.snapshot()
-        selection.send(snapshot.itemIdentifiers[indexPath.row].id)
+        selection.send(snapshot.itemIdentifiers[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
@@ -150,6 +150,7 @@ extension ProductSearchViewController {
                     return UITableViewCell()
                 }
                 cell.bind(to: ProductViewModel)
+                cell.selectionStyle = .none
                 return cell
             }
         )

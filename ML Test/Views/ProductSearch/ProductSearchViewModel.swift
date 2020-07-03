@@ -23,7 +23,7 @@ final class ProductSearchViewModel: ProductSearchViewModelType {
         cancellables.removeAll()
         
         input.selection
-            .sink(receiveValue: { [unowned self] productId in self.navigator?.showProductDetail(productId: productId) })
+            .sink(receiveValue: { [unowned self] producViewModel in self.navigator?.showProductDetail(productViewModel: producViewModel) })
             .store(in: &cancellables)
         
         let searchInput = input.search

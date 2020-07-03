@@ -18,7 +18,7 @@ typealias ProductSearchViewModelOutput = AnyPublisher<ProductSearchViewState, Ne
 struct ProductSearchViewModelInput {
     let appear: AnyPublisher<Void, Never>
     let search: AnyPublisher<String, Never>
-    let selection: AnyPublisher<String, Never>
+    let selection: AnyPublisher<ProductViewModel, Never>
 }
 
 ///Estados de la pantalla de búsqueda de producto

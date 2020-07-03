@@ -10,18 +10,19 @@ import Combine
 
 class ProductDetailViewController: UIViewController {
     @IBOutlet private var productImage: UIImageView!
+    private var cancellable: AnyCancellable?
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet private var conditionLabel: UILabel!
-    @IBOutlet private var freeShipingValue: UILabel!
+    @IBOutlet private var freeShippingLabel: UILabel!
 
 
-    private let viewModel: ProductDetailViewModel
+    private let viewModel: ProductViewModel
     private var cancellables: [AnyCancellable] = []
     private let appear = PassthroughSubject<Void, Never>()
 
     
-    init(viewModel: ProductDetailViewModel) {
+    init(viewModel: ProductViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -41,8 +42,21 @@ class ProductDetailViewController: UIViewController {
         appear.send(())
     }
 
-    private func show(_ product: ProductDetailViewModel) {
-        titleLabel.text = viewModel.productId
+    private func show(_ product: ProductViewModel) {
+        titleLabel.text = viewModel.title
+        priceLabel.text = "$\(viewModel.price.formattedDecimalString())"
+        conditionLabel.text = viewModel.condition == .new ? "Nuevo" : "Usado"
+        freeShippingLabel.isHidden = !viewModel.freeShipping
+        cancellable = viewModel.image.sink { [unowned self] image in self.showImage(image: image) }
+    }
+    
+    private func showImage(image: UIImage?) {
+        UIView.transition(with: self.productImage,
+        duration: 1,
+        options: [.beginFromCurrentState, .transitionCurlDown],
+        animations: {
+            self.productImage.image = image
+        })
     }
 }
 

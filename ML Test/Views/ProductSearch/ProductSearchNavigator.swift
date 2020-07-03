@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ProductSearchNavigator: AnyObject {
-    func showProductDetail(productId: String)
+    func showProductDetail(productViewModel: ProductViewModel)
 }

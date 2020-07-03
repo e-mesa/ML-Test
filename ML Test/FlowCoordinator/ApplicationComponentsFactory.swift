@@ -27,10 +27,9 @@ extension ApplicationComponentsFactory: ApplicationFlowCoordinatorDependencyProv
 }
 
 extension ApplicationComponentsFactory: ProductSearchFlowCoordinatorDependencyProvider {
-    func productDetailController(_ productId: String) -> UIViewController {
+    func productDetailController(_ productViewModel: ProductViewModel) -> UIViewController {
         //emesa
-        let viewModel = ProductDetailViewModel(productId: productId)
-        return ProductDetailViewController(viewModel: viewModel)
+        return ProductDetailViewController(viewModel: productViewModel)
     }
 
     func productSearchController(navigator: ProductSearchNavigator) -> UIViewController {

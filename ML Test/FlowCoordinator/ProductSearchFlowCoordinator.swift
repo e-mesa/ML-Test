@@ -22,8 +22,8 @@ class ProductSearchFlowCoordinator: FlowCoordinator, ProductSearchNavigator {
         
     }
     
-    func showProductDetail(productId: String) {
-        let controller = self.dependencyProvider.productDetailController(productId)
+    func showProductDetail(productViewModel: ProductViewModel) {
+        let controller = self.dependencyProvider.productDetailController(productViewModel)
         self.rootViewController.pushViewController(controller, animated: true)
     }
 }
