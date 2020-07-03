@@ -54,8 +54,8 @@ class ProductDetailViewController: UIViewController {
         UIView.transition(with: self.productImage,
         duration: 1,
         options: [.beginFromCurrentState, .transitionCurlDown],
-        animations: {
-            self.productImage.image = image
+        animations: { [weak self] in
+            self?.productImage.image = image
         })
     }
 }
