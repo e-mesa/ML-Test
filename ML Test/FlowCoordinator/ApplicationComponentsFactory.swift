@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import Combine
 
 /// ApplicationComponentsFactory se encarga de crear componentes de la aplicación y manejar las dependencias entre ellos
 final class ApplicationComponentsFactory {
     private let servicesProvider: ServicesProvider
-    fileprivate lazy var userCase: ProductUseCaseType = ProductUseCase(networkService: servicesProvider.network, imageLoaderService: servicesProvider.imageLoader)
+
+    fileprivate lazy var useCase: ProductUseCaseType = ProductUseCase(networkService: servicesProvider.network, imageLoaderService: servicesProvider.imageLoader)
     init(servicesProvider: ServicesProvider = ServicesProvider.defaultProvider()) {
         self.servicesProvider = servicesProvider
     }
@@ -25,14 +27,15 @@ extension ApplicationComponentsFactory: ApplicationFlowCoordinatorDependencyProv
 }
 
 extension ApplicationComponentsFactory: ProductSearchFlowCoordinatorDependencyProvider {
+    func productDetailController(_ productId: String) -> UIViewController {
+        //emesa
+        let viewModel = ProductDetailViewModel(productId: productId)
+        return ProductDetailViewController(viewModel: viewModel)
+    }
+
     func productSearchController(navigator: ProductSearchNavigator) -> UIViewController {
-        let viewModel = ProductSearchViewModel(useCase: userCase, navigator: navigator)
+        let viewModel = ProductSearchViewModel(useCase: useCase, navigator: navigator)
         return ProductSearchViewController(viewModel: viewModel)
     }
-    
-    func productDetailController(_ productId: String) -> UIViewController {
-        return UINavigationController()
-    }
-    
     
 }

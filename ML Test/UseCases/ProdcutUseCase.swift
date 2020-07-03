@@ -12,8 +12,7 @@ import UIKit.UIImage
 protocol ProductUseCaseType {
     ///Retorna los productos para una búsqueda específica
     func searchProduct(name: String) -> AnyPublisher<Result<[Product], Error>, Never>
-    ///Retorna el detalle de un producto en particular
-    //func productDetails(productId: Int) -> AnyPublisher<[Result<Product, Error>], Never>
+    ///Se encarga de cargar la imagen dado un producto
     func loadImage(product: Product) -> AnyPublisher<UIImage?, Never>
 }
 

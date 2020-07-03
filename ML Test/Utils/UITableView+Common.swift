@@ -31,7 +31,7 @@ extension NibProtocol {
     }
 }
 
-// Cell
+// UITableView Related
 extension UITableView {
     func registerClass<T: UITableViewCell>(cellClass `class`: T.Type) where T: ReusableView {
         register(`class`, forCellReuseIdentifier: `class`.reuseIdentifier)

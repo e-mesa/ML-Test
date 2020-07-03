@@ -9,18 +9,19 @@ import UIKit
 import Combine
 
 class ProductDetailViewController: UIViewController {
-    @IBOutlet private var loadingIndicator: UIActivityIndicatorView!
-    @IBOutlet private var contentView: UIView!
     @IBOutlet private var productImage: UIImageView!
-    @IBOutlet private var name: UILabel!
-    @IBOutlet private var price: UILabel!
-    @IBOutlet private var details: UILabel!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet private var conditionLabel: UILabel!
+    @IBOutlet private var freeShipingValue: UILabel!
 
-    private let viewModel: ProductDetailViewModelType
+
+    private let viewModel: ProductDetailViewModel
     private var cancellables: [AnyCancellable] = []
     private let appear = PassthroughSubject<Void, Never>()
 
-    init(viewModel: ProductDetailViewModelType) {
+    
+    init(viewModel: ProductDetailViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -31,8 +32,8 @@ class ProductDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.accessibilityIdentifier = AccessibilityIdentifiers.someId
-        bind(to: viewModel)
+        show(viewModel)
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -40,20 +41,8 @@ class ProductDetailViewController: UIViewController {
         appear.send(())
     }
 
-    private func bind(to viewModel: ProductDetailViewModelType) {
-        
-    }
-
-    private func render(_ state: ProductDetailViewState) {
-        switch state {
-        case .someState:
-            break
-        }
-    }
-
-    private func show(_ product: ProductViewModel) {
-        name.text = product.title
-        price.text = String(product.price)
+    private func show(_ product: ProductDetailViewModel) {
+        titleLabel.text = viewModel.productId
     }
 }
 

@@ -6,22 +6,33 @@
 //
 
 import Foundation
-
-import Foundation
 import Combine
 
-protocol ProductDetailViewModelType {
-    func transform(input: ProductSearchViewModelInput) //-> ProductSearchViewModelOutput
-}
-
-typealias ProductDetailViewModelOutput = AnyPublisher<ProductSearchViewState, Never>
-
-///Inputs de la pantalla de búsqueda de producto
 struct ProductDetailViewModelInput {
+    ///Se llama cuando aparece por primera vez la vista de detalle
     let appear: AnyPublisher<Void, Never>
 }
 
-///Estados de la pantalla de búsqueda de producto
+
 enum ProductDetailViewState {
-    case someState
+    case loading
+    case success(ProductViewModel)
+    case failure(Error)
+}
+
+extension ProductDetailViewState: Equatable {
+    static func == (lhs: ProductDetailViewState, rhs: ProductDetailViewState) -> Bool {
+        switch (lhs, rhs) {
+        case (.loading, .loading): return true
+        case (.success(let lhsProduct), .success(let rhsProduct)): return lhsProduct == rhsProduct
+        case (.failure, .failure): return true
+        default: return false
+        }
+    }
+}
+
+typealias ProductDetailViewModelOutput = AnyPublisher<ProductDetailViewState, Never>
+
+protocol ProductDetailViewModelType: class {
+    func transform(input: ProductDetailViewModelInput) -> ProductDetailViewModelOutput
 }

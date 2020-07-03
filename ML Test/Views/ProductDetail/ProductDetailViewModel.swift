@@ -6,8 +6,12 @@
 //
 
 import Foundation
+import Combine
 
-struct ProductDetailViewModel: ProductDetailViewModelType {
-    func transform(input: ProductSearchViewModelInput) {
-    }
+class ProductDetailViewModel {
+    let productId: String
+
+      init(productId: String) {
+          self.productId = productId
+      }
 }

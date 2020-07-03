@@ -22,7 +22,6 @@ class ProductSearchViewController : UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.tintColor = UIColor.black
         searchController.searchBar.delegate = self
-        searchController.searchBar.searchTextField.accessibilityIdentifier = AccessibilityIdentifiers.someId
         return searchController
     }()
     private lazy var dataSource = makeDataSource()
@@ -49,9 +48,6 @@ class ProductSearchViewController : UIViewController {
     private func configureUI() {
         definesPresentationContext = true
         title = NSLocalizedString("Productos", comment: "Productos")
-        view.accessibilityIdentifier = AccessibilityIdentifiers.someId
-
-        tableView.accessibilityIdentifier = AccessibilityIdentifiers.someId
         tableView.tableFooterView = UIView()
         tableView.registerNib(cellClass: ProductTableViewCell.self)
         tableView.dataSource = dataSource
@@ -153,7 +149,6 @@ extension ProductSearchViewController {
                     assertionFailure("Failed to dequeue \(ProductTableViewCell.self)!")
                     return UITableViewCell()
                 }
-                cell.accessibilityIdentifier = AccessibilityIdentifiers.someId
                 cell.bind(to: ProductViewModel)
                 return cell
             }
