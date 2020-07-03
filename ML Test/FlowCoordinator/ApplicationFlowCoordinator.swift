@@ -21,7 +21,7 @@ class ApplicationFlowCoordinator: FlowCoordinator {
     
     func start() {
         let productSearchNavigatorController = UINavigationController()
-        productSearchNavigatorController.navigationBar.tintColor = UIColor.black
+        productSearchNavigatorController.navigationBar.tintColor = UIColor.systemYellow
         window.rootViewController = productSearchNavigatorController
         let productSearchFlowCoordinator = ProductSearchFlowCoordinator(rootController: productSearchNavigatorController, dependencyProvider: dependencyProvider)
         productSearchFlowCoordinator.start()

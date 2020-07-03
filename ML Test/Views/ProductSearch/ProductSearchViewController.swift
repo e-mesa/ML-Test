@@ -20,7 +20,7 @@ class ProductSearchViewController : UIViewController {
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.tintColor = UIColor.black
+        searchController.searchBar.tintColor = UIColor.systemYellow
         searchController.searchBar.delegate = self
         return searchController
     }()
